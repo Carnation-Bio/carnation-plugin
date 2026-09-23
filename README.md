@@ -2,7 +2,7 @@
 
 Use Carnation from Claude Code or Codex to inspect microscopy data, author analysis pipelines, validate workflows, preview results, compare parameters, and save pipelines.
 
-This pilot plugin connects to Carnation's hosted beta MCP service. The plugin contains instructions and connection metadata only. It does not include executable code or credentials.
+This pilot plugin connects to Carnation's hosted MCP service. The plugin contains instructions and connection metadata only. It does not include executable code or credentials.
 
 ## Install in Claude Code
 
@@ -40,12 +40,12 @@ Manage or revoke the connection at **Carnation → Settings → Connected apps**
 Clients that support remote HTTP MCP and OAuth can connect directly to:
 
 ```text
-https://beta-public-api.carnation.bio/mcp
+https://public-api.carnation.bio/mcp
 ```
 
 The plugin is recommended for Claude Code and Codex because it also teaches the assistant Carnation's scientific validation workflow.
 
-## Current beta scope
+## Current pilot scope
 
 The pilot supports dataset and field inspection, existing pipeline loading, live step discovery, workflow validation, previews, evidence inspection, parameter sweeps, cancellation, and explicit pipeline saves.
 

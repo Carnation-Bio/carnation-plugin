@@ -1,6 +1,6 @@
 {
   "name": "carnation",
-  "version": "0.1.0-beta.2",
+  "version": "0.1.0-beta.3",
   "description": "Author and validate microscopy analysis pipelines with Carnation.",
   "author": {
     "name": "Carnation Bio",

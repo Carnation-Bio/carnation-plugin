@@ -2,8 +2,8 @@
   "mcpServers": {
     "carnation": {
       "type": "http",
-      "url": "https://beta-public-api.carnation.bio/mcp",
-      "oauth_resource": "https://beta-public-api.carnation.bio/mcp"
+      "url": "https://public-api.carnation.bio/mcp",
+      "oauth_resource": "https://public-api.carnation.bio/mcp"
     }
   }
 }

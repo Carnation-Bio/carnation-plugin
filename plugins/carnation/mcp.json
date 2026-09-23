@@ -3,7 +3,7 @@
   "mcpServers": {
     "carnation": {
       "type": "streamable-http",
-      "url": "https://beta-public-api.carnation.bio/mcp"
+      "url": "https://public-api.carnation.bio/mcp"
     }
   }
 }
