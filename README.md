@@ -33,7 +33,7 @@ Ask a question such as:
 
 Your first Carnation tool call opens Carnation in the browser. Sign in and approve the requested permissions. The assistant can then inspect your organization's data and use the tools allowed by that connection.
 
-Manage or revoke the connection at **Carnation → Settings → Connected apps**. A revoked client must complete a new authorization before it can use Carnation again.
+Manage or revoke the connection from **Carnation → MCP connections**. A revoked client must complete a new authorization before it can use Carnation again.
 
 ## Direct MCP setup
 
