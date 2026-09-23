@@ -29,7 +29,7 @@ Then open `/plugins`, select the **Carnation** marketplace, and install **Carnat
 
 Ask a question such as:
 
-> Inspect my dataset and build a pipeline to quantify nuclear translocation. Preview it on representative control and treatment fields, compare uncertain parameters, and show me the evidence.
+> Use this paper to build a matching analysis pipeline for my dataset. Test it on representative fields and show me the evidence.
 
 Your first Carnation tool call opens Carnation in the browser. Sign in and approve the requested permissions. The assistant can then inspect your organization's data and use the tools allowed by that connection.
 

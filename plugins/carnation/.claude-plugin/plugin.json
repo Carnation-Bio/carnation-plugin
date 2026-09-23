@@ -1,6 +1,6 @@
 {
   "name": "carnation",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "description": "Author and validate microscopy analysis pipelines with Carnation.",
   "author": {
     "name": "Carnation Bio",
@@ -9,5 +9,9 @@
   "homepage": "https://carnation.bio",
   "repository": "https://github.com/Carnation-Bio/carnation-plugin",
   "license": "Apache-2.0",
-  "keywords": ["microscopy", "image-analysis", "biology"]
+  "keywords": [
+    "microscopy",
+    "image-analysis",
+    "biology"
+  ]
 }

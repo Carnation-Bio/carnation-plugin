@@ -1,6 +1,6 @@
 {
   "name": "carnation",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "description": "Author and validate microscopy analysis pipelines with Carnation.",
   "author": {
     "name": "Carnation Bio",
@@ -10,7 +10,11 @@
   "homepage": "https://carnation.bio",
   "repository": "https://github.com/Carnation-Bio/carnation-plugin",
   "license": "Apache-2.0",
-  "keywords": ["microscopy", "image-analysis", "biology"],
+  "keywords": [
+    "microscopy",
+    "image-analysis",
+    "biology"
+  ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
@@ -19,16 +23,20 @@
     "longDescription": "Inspect microscopy data, build analysis pipelines, preview results, compare parameters, and save validated pipelines in Carnation.",
     "developerName": "Carnation Bio",
     "category": "Productivity",
-    "capabilities": ["Read", "Write"],
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
     "websiteURL": "https://carnation.bio",
     "defaultPrompt": [
-      "Build a pipeline for the biological phenotype I describe.",
-      "Inspect my dataset and validate an analysis approach.",
-      "Compare parameters on representative fields."
+      "Use this paper to build a matching analysis pipeline for my dataset. Test it on representative fields and show me the evidence."
     ],
     "brandColor": "#D94A64",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/logo.png",
-    "logoDark": "./assets/logo-dark.svg"
+    "logoDark": "./assets/logo-dark.svg",
+    "screenshots": [
+      "./assets/carnation-analysis.png"
+    ]
   }
 }
