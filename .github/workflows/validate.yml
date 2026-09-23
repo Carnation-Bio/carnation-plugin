@@ -1,0 +1,55 @@
+name: Validate plugin
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate package structure
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path.cwd()
+          plugin = root / "plugins" / "carnation"
+          json_files = [
+              root / ".agents" / "plugins" / "marketplace.json",
+              root / ".claude-plugin" / "marketplace.json",
+              plugin / "plugin.json",
+              plugin / "mcp.json",
+              plugin / ".codex-plugin" / "plugin.json",
+              plugin / ".claude-plugin" / "plugin.json",
+              plugin / ".mcp.json",
+          ]
+          documents = {path: json.loads(path.read_text()) for path in json_files}
+
+          expected_version = "0.1.0-beta.1"
+          endpoint = "https://beta-public-api.carnation.bio/mcp"
+          manifests = [
+              documents[plugin / "plugin.json"],
+              documents[plugin / ".codex-plugin" / "plugin.json"],
+              documents[plugin / ".claude-plugin" / "plugin.json"],
+          ]
+          assert all(item["name"] == "carnation" for item in manifests)
+          assert all(item["version"] == expected_version for item in manifests)
+          assert documents[root / ".claude-plugin" / "marketplace.json"]["plugins"][0]["version"] == expected_version
+          assert documents[plugin / "mcp.json"]["mcpServers"]["carnation"]["url"] == endpoint
+          assert documents[plugin / ".mcp.json"]["mcpServers"]["carnation"]["url"] == endpoint
+
+          skill = (plugin / "skills" / "carnation" / "SKILL.md").read_text()
+          assert skill.startswith("---\nname: carnation\n")
+          assert "description:" in skill.split("---", 2)[1]
+
+          forbidden = [plugin / "hooks", plugin / "scripts"]
+          assert not any(path.exists() for path in forbidden)
+          assert not any(path.is_file() and path.stat().st_mode & 0o111 for path in plugin.rglob("*"))
+          PY

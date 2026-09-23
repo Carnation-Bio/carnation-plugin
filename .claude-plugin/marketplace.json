@@ -1,0 +1,27 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "carnation",
+  "description": "Official Carnation plugins for microscopy analysis.",
+  "owner": {
+    "name": "Carnation Bio",
+    "email": "support@carnation.bio"
+  },
+  "metadata": {
+    "description": "Connect Claude Code to Carnation's microscopy analysis tools.",
+    "version": "0.1.0-beta.1"
+  },
+  "plugins": [
+    {
+      "name": "carnation",
+      "description": "Author and validate microscopy analysis pipelines with Carnation.",
+      "version": "0.1.0-beta.1",
+      "author": {
+        "name": "Carnation Bio",
+        "email": "support@carnation.bio"
+      },
+      "source": "./plugins/carnation",
+      "category": "productivity",
+      "homepage": "https://carnation.bio"
+    }
+  ]
+}
