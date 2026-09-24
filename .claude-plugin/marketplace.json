@@ -8,13 +8,13 @@
   },
   "metadata": {
     "description": "Connect Claude Code to Carnation's microscopy analysis tools.",
-    "version": "0.1.0-beta.3"
+    "version": "0.1.0-beta.4"
   },
   "plugins": [
     {
       "name": "carnation",
       "description": "Author and validate microscopy analysis pipelines with Carnation.",
-      "version": "0.1.0-beta.3",
+      "version": "0.1.0-beta.4",
       "author": {
         "name": "Carnation Bio",
         "email": "support@carnation.bio"
