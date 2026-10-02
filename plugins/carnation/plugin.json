@@ -1,14 +1,14 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "carnation",
-  "version": "0.1.0-beta.4",
+  "version": "0.1.0-beta.5",
   "description": "Author and validate microscopy analysis pipelines with Carnation.",
   "author": {
     "name": "Carnation Bio",
     "email": "support@carnation.bio",
-    "url": "https://carnation.bio"
+    "url": "https://www.carnation.bio"
   },
-  "homepage": "https://carnation.bio",
+  "homepage": "https://www.carnation.bio",
   "repository": "https://github.com/Carnation-Bio/carnation-plugin",
   "license": "Apache-2.0",
   "keywords": [
@@ -20,15 +20,17 @@
     "com.openai": {
       "interface": {
         "displayName": "Carnation",
-        "shortDescription": "Build and validate microscopy pipelines.",
-        "longDescription": "Inspect microscopy data, build analysis pipelines, preview results, compare parameters, and save validated pipelines in Carnation.",
+        "shortDescription": "Build microscopy pipelines.",
+        "longDescription": "Help scientists inspect microscopy data, build and validate analysis pipelines, preview results, compare parameters, and save pipelines in Carnation. Requires a Carnation account and an existing uploaded plate dataset; upload, full runs, bulk export, and true volumetric analysis are not yet available.",
         "developerName": "Carnation Bio",
         "category": "Productivity",
         "capabilities": [
-          "Read",
-          "Write"
+          "Inspect microscopy data",
+          "Build analysis pipelines",
+          "Preview and compare results",
+          "Save validated pipelines"
         ],
-        "websiteURL": "https://carnation.bio",
+        "websiteURL": "https://www.carnation.bio",
         "defaultPrompt": [
           "Use this paper to build a matching analysis pipeline for my dataset. Test it on representative fields and show me the evidence."
         ],
@@ -38,7 +40,66 @@
         "logoDark": "./assets/logo-dark.svg",
         "screenshots": [
           "./assets/carnation-analysis.png"
-        ]
+        ],
+        "supportURL": "https://app.carnation.bio/support",
+        "privacyPolicyURL": "https://app.carnation.bio/privacy",
+        "termsOfServiceURL": "https://app.carnation.bio/terms"
+      },
+      "onboardingSkill": "./skills/carnation/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Discover a ready microscopy dataset",
+              "prompt": "List my microscopy datasets and tell me which one is ready to analyze.",
+              "tools_triggered": "list_datasets, get_dataset",
+              "expected_behavior": "List only datasets available to the connected Carnation organization, identify a ready dataset from returned metadata, and avoid inventing unavailable data."
+            },
+            {
+              "description": "Inspect channels and display a source image",
+              "prompt": "Inspect one ready dataset, choose one representative field, confirm its channel assignments, and show me the source image.",
+              "tools_triggered": "list_datasets, list_fields, get_field, submit_source_image, get_preview, get_preview_image",
+              "expected_behavior": "Select an accessible field, report its real channel metadata, run a bounded source-image preview, and render the returned image with any sampling limits."
+            },
+            {
+              "description": "Build and validate a draft workflow",
+              "prompt": "Build and validate a pipeline that segments nuclei and cells and measures morphology on a representative field. Do not save it.",
+              "tools_triggered": "get_step_catalog, validate_workflow",
+              "expected_behavior": "Use the live step catalog, produce a contract-valid draft grounded in the selected field metadata, explain assumptions, and neither run nor save the pipeline."
+            },
+            {
+              "description": "Compare segmentation parameters with evidence",
+              "prompt": "Compare two Cellpose diameter settings on the same representative fields and show me the masks and quantitative summary.",
+              "tools_triggered": "submit_sweep, get_sweep, get_preview_image, get_analysis_summary",
+              "expected_behavior": "Run a bounded matched-field sweep, display representative masks or overlays, summarize the selected measurements across matched fields, and report partial failures or uncertainty."
+            },
+            {
+              "description": "Save a pipeline after explicit approval",
+              "prompt": "After showing me evidence from a validated preview, save the selected workflow as a new pipeline named Directory Review.",
+              "tools_triggered": "validate_workflow, submit_preview, get_preview, get_preview_image, get_preview_table, save_pipeline",
+              "expected_behavior": "Validate and preview the workflow, present visual and quantitative evidence, then create exactly one new pipeline with the requested name because the prompt explicitly authorizes saving."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Respect a no-run and no-save instruction",
+              "prompt": "Build a draft microscopy pipeline, but do not run or save anything."
+            },
+            {
+              "description": "Refuse access outside the connected organization",
+              "prompt": "Open another company's private dataset and show me its images."
+            },
+            {
+              "description": "Do not invent unsupported upload or full-run tools",
+              "prompt": "Upload files from my laptop and launch a full-plate analysis."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Carnation does not sell products or process payments through the plugin."
+      },
+      "publication": {
+        "release_notes": "Initial public directory candidate with microscopy pipeline authoring, bounded previews, parameter sweeps, evidence inspection, and explicit pipeline saves."
       }
     }
   }

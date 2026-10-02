@@ -1,13 +1,13 @@
 {
   "name": "carnation",
-  "version": "0.1.0-beta.4",
+  "version": "0.1.0-beta.5",
   "description": "Author and validate microscopy analysis pipelines with Carnation.",
   "author": {
     "name": "Carnation Bio",
     "email": "support@carnation.bio",
-    "url": "https://carnation.bio"
+    "url": "https://www.carnation.bio"
   },
-  "homepage": "https://carnation.bio",
+  "homepage": "https://www.carnation.bio",
   "repository": "https://github.com/Carnation-Bio/carnation-plugin",
   "license": "Apache-2.0",
   "keywords": [
@@ -19,15 +19,17 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Carnation",
-    "shortDescription": "Build and validate microscopy pipelines.",
-    "longDescription": "Inspect microscopy data, build analysis pipelines, preview results, compare parameters, and save validated pipelines in Carnation.",
+    "shortDescription": "Build microscopy pipelines.",
+    "longDescription": "Help scientists inspect microscopy data, build and validate analysis pipelines, preview results, compare parameters, and save pipelines in Carnation. Requires a Carnation account and an existing uploaded plate dataset; upload, full runs, bulk export, and true volumetric analysis are not yet available.",
     "developerName": "Carnation Bio",
     "category": "Productivity",
     "capabilities": [
-      "Read",
-      "Write"
+      "Inspect microscopy data",
+      "Build analysis pipelines",
+      "Preview and compare results",
+      "Save validated pipelines"
     ],
-    "websiteURL": "https://carnation.bio",
+    "websiteURL": "https://www.carnation.bio",
     "defaultPrompt": [
       "Use this paper to build a matching analysis pipeline for my dataset. Test it on representative fields and show me the evidence."
     ],
