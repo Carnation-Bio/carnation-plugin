@@ -57,7 +57,7 @@ infrastructure. Scientists can review representative source images, masks, and
 measurements before approving the analysis across the full dataset. Completed
 results can be queried directly or exported as Parquet and CSV.
 
-**Example prompt**
+**Example prompts**
 
 > Does the treated condition change nuclear morphology, cell size, or cell count
 > compared with the vehicle control? Build an analysis to measure these effects,
@@ -65,6 +65,14 @@ results can be queried directly or exported as Parquet and CSV.
 > representative images. Show me the source images, segmentation masks, and
 > measurement distributions, then run the validated analysis across the full
 > dataset and summarize the results.
+
+> Compare two Cellpose diameter settings on the same representative 2D fields.
+> Show the source images, masks, overlays, object counts, and size distributions,
+> then recommend the setting with the cleanest cell boundaries.
+
+> Using an explicit maximum-intensity projection of my Z-stack, measure nuclear
+> count, area, and intensity by treatment. Confirm the channel mapping, test the
+> analysis on treated and control fields, and show the supporting evidence.
 
 **Anthropic categories**
 
@@ -125,7 +133,8 @@ results can be queried directly or exported as Parquet and CSV.
 ## Items required before submission
 
 - Merge and deploy the approved app/API copy and legal pages.
-- Upload the reviewed `0.1.0` plugin bundle to both directory portals.
+- Create a plugin-only ZIP rooted at `plugins/carnation/` for the OpenAI portal.
+- For Anthropic, select the reviewed `Carnation-Bio/carnation-plugin` GitHub repository and `0.1.0` plugin version in the submission.
 - Submit the Anthropic remote connector and plugin from the same Claude organization, then pair them after approval.
 - Finish the reviewer account invitation and upload the approved sample data.
 - Record a short walkthrough showing connection, authorization, metadata confirmation, representative preview, visible evidence, a confirmed full run, a result query, and export.
