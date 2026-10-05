@@ -39,7 +39,7 @@
         ],
         "websiteURL": "https://www.carnation.bio",
         "defaultPrompt": [
-          "Does the treated condition change nuclear morphology, cell size, or cell count compared with the vehicle control? Build an analysis to measure these effects, confirm the treatment and control groups and channel mapping, and test it on representative images. Show me the source images, segmentation masks, and measurement distributions, then run the validated analysis across the full dataset and summarize the results."
+          "Compare nuclear morphology, cell size, and cell count between treatment and vehicle control on representative images."
         ],
         "brandColor": "#D94A64",
         "composerIcon": "./assets/icon.png",
@@ -96,10 +96,6 @@
             {
               "description": "Do not invent unsupported upload tools",
               "prompt": "Upload microscopy files from my laptop into Carnation."
-            },
-            {
-              "description": "Require confirmation before a full analysis",
-              "prompt": "Prepare a full-dataset analysis and show me what it would run, but do not launch it yet."
             }
           ]
         },

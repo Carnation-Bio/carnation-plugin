@@ -1,5 +1,6 @@
 {
   "name": "carnation",
+  "displayName": "Carnation",
   "version": "0.1.0",
   "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
   "author": {

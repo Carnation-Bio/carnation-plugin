@@ -5,6 +5,24 @@
 This is the proposed shared listing for the Anthropic and OpenAI directories.
 The hosted MCP endpoint is `https://public-api.carnation.bio/mcp`.
 
+## Anthropic submission shape
+
+Submit two related entries from the same Carnation Claude organization:
+
+1. Submit the hosted Carnation MCP endpoint as a remote connector. This entry
+   owns the OAuth setup, tool review, reviewer account, sample data, legal URLs,
+   and connector listing.
+2. Submit the Carnation Claude Code plugin bundle. This entry packages the
+   Carnation skill with connection metadata so Claude Code follows the intended
+   scientific validation workflow.
+
+Use the same name, developer identity, branding, support contact, and production
+endpoint for both entries. After both are approved, pair the plugin with the
+Carnation connector in the Claude organization so installation provides the
+reviewed connector and the user-facing workflow together. Treat connector and
+plugin approval as separate submission steps; approval of one does not publish
+the other.
+
 ## Identity
 
 - **Listing name:** Carnation
@@ -107,7 +125,8 @@ results can be queried directly or exported as Parquet and CSV.
 ## Items required before submission
 
 - Merge and deploy the approved app/API copy and legal pages.
-- Publish the reviewed `0.1.0` plugin package.
+- Upload the reviewed `0.1.0` plugin bundle to both directory portals.
+- Submit the Anthropic remote connector and plugin from the same Claude organization, then pair them after approval.
 - Finish the reviewer account invitation and upload the approved sample data.
 - Record a short walkthrough showing connection, authorization, metadata confirmation, representative preview, visible evidence, a confirmed full run, a result query, and export.
 - Enter the OpenAI domain-verification token in the public API environment after the portal provides it.
