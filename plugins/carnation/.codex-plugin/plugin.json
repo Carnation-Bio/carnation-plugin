@@ -1,42 +1,48 @@
 {
   "name": "carnation",
-  "version": "0.1.0-beta.4",
-  "description": "Author and validate microscopy analysis pipelines with Carnation.",
+  "version": "0.1.0",
+  "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
   "author": {
     "name": "Carnation Bio",
     "email": "support@carnation.bio",
-    "url": "https://carnation.bio"
+    "url": "https://www.carnation.bio"
   },
-  "homepage": "https://carnation.bio",
+  "homepage": "https://www.carnation.bio",
   "repository": "https://github.com/Carnation-Bio/carnation-plugin",
   "license": "Apache-2.0",
   "keywords": [
     "microscopy",
-    "image-analysis",
+    "bioimage-analysis",
+    "cell-segmentation",
+    "nucleus-segmentation",
+    "cell-painting",
+    "high-content-imaging",
+    "phenotyping",
+    "morphology",
     "biology"
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Carnation",
-    "shortDescription": "Build and validate microscopy pipelines.",
-    "longDescription": "Inspect microscopy data, build analysis pipelines, preview results, compare parameters, and save validated pipelines in Carnation.",
+    "shortDescription": "Microscopy analysis at scale",
+    "longDescription": "Carnation helps scientists answer biological questions from microscopy images. Starting from a research question, assay description, or published method, it inspects the connected dataset, confirms channels and metadata, and runs state-of-the-art segmentation models and quantitative measurements on cloud GPU infrastructure. Scientists can review representative source images, masks, and measurements before approving the analysis across the full dataset. Completed results can be queried directly or exported as Parquet and CSV.",
     "developerName": "Carnation Bio",
     "category": "Productivity",
     "capabilities": [
-      "Read",
-      "Write"
+      "Inspect microscopy datasets, images, channels, and experimental metadata",
+      "Run state-of-the-art segmentation and quantitative measurements on cloud GPUs",
+      "Test analyses on representative images and compare parameters",
+      "Review source images, masks, overlays, measurements, and quality evidence",
+      "Run full-dataset analyses, query results, and export Parquet or CSV"
     ],
-    "websiteURL": "https://carnation.bio",
+    "websiteURL": "https://www.carnation.bio",
     "defaultPrompt": [
-      "Use this paper to build a matching analysis pipeline for my dataset. Test it on representative fields and show me the evidence."
+      "Does the treated condition change nuclear morphology, cell size, or cell count compared with the vehicle control? Build an analysis to measure these effects, confirm the treatment and control groups and channel mapping, and test it on representative images. Show me the source images, segmentation masks, and measurement distributions, then run the validated analysis across the full dataset and summarize the results."
     ],
     "brandColor": "#D94A64",
     "composerIcon": "./assets/icon.png",
     "logo": "./assets/logo.png",
-    "logoDark": "./assets/logo-dark.svg",
-    "screenshots": [
-      "./assets/carnation-analysis.png"
-    ]
+    "logoDark": "./assets/logo-dark.svg"
   }
 }

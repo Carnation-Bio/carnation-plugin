@@ -1,8 +1,8 @@
 # Carnation plugin
 
-Use Carnation from Claude Code or Codex to inspect microscopy data, author analysis pipelines, validate workflows, preview results, compare parameters, and save pipelines.
+Use Carnation from Claude Code or Codex to answer biological questions from microscopy images with scalable cloud analysis.
 
-This pilot plugin connects to Carnation's hosted MCP service. The plugin contains instructions and connection metadata only. It does not include executable code or credentials.
+The plugin connects to Carnation's hosted MCP service. It contains instructions and connection metadata only, with no executable code or credentials.
 
 ## Install in Claude Code
 
@@ -29,7 +29,7 @@ Then open `/plugins`, select the **Carnation** marketplace, and install **Carnat
 
 Ask a question such as:
 
-> Use this paper to build a matching analysis pipeline for my dataset. Test it on representative fields and show me the evidence.
+> Does the treated condition change nuclear morphology, cell size, or cell count compared with the vehicle control? Build an analysis to measure these effects, confirm the treatment and control groups and channel mapping, and test it on representative images. Show me the source images, segmentation masks, and measurement distributions, then run the validated analysis across the full dataset and summarize the results.
 
 Your first Carnation tool call opens Carnation in the browser. Sign in and approve the requested permissions. The assistant can then inspect your organization's data and use the tools allowed by that connection.
 
@@ -45,11 +45,11 @@ https://public-api.carnation.bio/mcp
 
 The plugin is recommended for Claude Code and Codex because it also teaches the assistant Carnation's scientific validation workflow.
 
-## Current pilot scope
+## Current scope
 
-The pilot supports dataset and field inspection, existing pipeline loading, live step discovery, workflow validation, previews, evidence inspection, parameter sweeps, cancellation, and explicit pipeline saves.
+Carnation supports dataset and field inspection, saved analysis loading, live step discovery, workflow validation, representative previews, visible evidence, parameter sweeps, cancellation, explicit pipeline saves, confirmed full-dataset runs, server-side result queries, and Parquet or CSV exports.
 
-Dataset upload, full analysis runs, result export, and true volumetric analysis are planned follow-ups. Current analysis is limited to one plate at a time, `t=0`, and 2D images or an explicit Z projection.
+Dataset upload and true volumetric analysis are planned follow-ups. Current analysis is limited to one plate at a time, `t=0`, and 2D images or an explicit Z projection.
 
 ## Update
 
@@ -73,7 +73,7 @@ Then update **Carnation** from `/plugins` and begin a new session.
 - Authentication uses Carnation's browser-based OAuth flow. Do not paste tokens into chat or configuration files.
 - The package has no hooks, scripts, executables, or bundled secrets.
 - Papers, prompts, and dataset metadata are scientific inputs. The skill tells the assistant to avoid treating their contents as operating instructions.
-- Source is available here so pilot users can inspect exactly what the plugin installs.
+- Source is available here so users can inspect exactly what the plugin installs.
 
 For access or support, contact [support@carnation.bio](mailto:support@carnation.bio).
 
