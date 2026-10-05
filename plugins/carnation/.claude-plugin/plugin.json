@@ -1,7 +1,7 @@
 {
   "name": "carnation",
-  "version": "0.1.0-beta.5",
-  "description": "Author and validate microscopy analysis pipelines with Carnation.",
+  "version": "0.1.0",
+  "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
   "author": {
     "name": "Carnation Bio",
     "email": "support@carnation.bio"
@@ -11,7 +11,13 @@
   "license": "Apache-2.0",
   "keywords": [
     "microscopy",
-    "image-analysis",
+    "bioimage-analysis",
+    "cell-segmentation",
+    "nucleus-segmentation",
+    "cell-painting",
+    "high-content-imaging",
+    "phenotyping",
+    "morphology",
     "biology"
   ]
 }

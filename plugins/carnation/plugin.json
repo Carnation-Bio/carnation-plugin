@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "carnation",
-  "version": "0.1.0-beta.5",
-  "description": "Author and validate microscopy analysis pipelines with Carnation.",
+  "version": "0.1.0",
+  "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
   "author": {
     "name": "Carnation Bio",
     "email": "support@carnation.bio",
@@ -13,34 +13,38 @@
   "license": "Apache-2.0",
   "keywords": [
     "microscopy",
-    "image-analysis",
+    "bioimage-analysis",
+    "cell-segmentation",
+    "nucleus-segmentation",
+    "cell-painting",
+    "high-content-imaging",
+    "phenotyping",
+    "morphology",
     "biology"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Carnation",
-        "shortDescription": "Build microscopy pipelines.",
-        "longDescription": "Help scientists inspect microscopy data, build and validate analysis pipelines, preview results, compare parameters, and save pipelines in Carnation. Requires a Carnation account and an existing uploaded plate dataset; upload, full runs, bulk export, and true volumetric analysis are not yet available.",
+        "shortDescription": "Microscopy analysis at scale",
+        "longDescription": "Carnation helps scientists answer biological questions from microscopy images. Starting from a research question, assay description, or published method, it inspects the connected dataset, confirms channels and metadata, and runs state-of-the-art segmentation models and quantitative measurements on cloud GPU infrastructure. Scientists can review representative source images, masks, and measurements before approving the analysis across the full dataset. Completed results can be queried directly or exported as Parquet and CSV.",
         "developerName": "Carnation Bio",
         "category": "Productivity",
         "capabilities": [
-          "Inspect microscopy data",
-          "Build analysis pipelines",
-          "Preview and compare results",
-          "Save validated pipelines"
+          "Inspect microscopy datasets, images, channels, and experimental metadata",
+          "Run state-of-the-art segmentation and quantitative measurements on cloud GPUs",
+          "Test analyses on representative images and compare parameters",
+          "Review source images, masks, overlays, measurements, and quality evidence",
+          "Run full-dataset analyses, query results, and export Parquet or CSV"
         ],
         "websiteURL": "https://www.carnation.bio",
         "defaultPrompt": [
-          "Use this paper to build a matching analysis pipeline for my dataset. Test it on representative fields and show me the evidence."
+          "Does the treated condition change nuclear morphology, cell size, or cell count compared with the vehicle control? Build an analysis to measure these effects, confirm the treatment and control groups and channel mapping, and test it on representative images. Show me the source images, segmentation masks, and measurement distributions, then run the validated analysis across the full dataset and summarize the results."
         ],
         "brandColor": "#D94A64",
         "composerIcon": "./assets/icon.png",
         "logo": "./assets/logo.png",
         "logoDark": "./assets/logo-dark.svg",
-        "screenshots": [
-          "./assets/carnation-analysis.png"
-        ],
         "supportURL": "https://app.carnation.bio/support",
         "privacyPolicyURL": "https://app.carnation.bio/privacy",
         "termsOfServiceURL": "https://app.carnation.bio/terms"
@@ -50,10 +54,10 @@
         "test_cases": {
           "positive": [
             {
-              "description": "Discover a ready microscopy dataset",
-              "prompt": "List my microscopy datasets and tell me which one is ready to analyze.",
-              "tools_triggered": "list_datasets, get_dataset",
-              "expected_behavior": "List only datasets available to the connected Carnation organization, identify a ready dataset from returned metadata, and avoid inventing unavailable data."
+              "description": "Answer a treatment-versus-control morphology question",
+              "prompt": "Does the treated condition change nuclear morphology, cell size, or cell count compared with the vehicle control? Build an analysis to measure these effects, confirm the treatment and control groups and channel mapping, and test it on representative images. Show me the source images, segmentation masks, and measurement distributions, then run the validated analysis across the full dataset and summarize the results.",
+              "tools_triggered": "list_datasets, get_dataset, list_fields, get_field, get_step_catalog, validate_workflow, submit_preview, get_preview, get_preview_image, get_analysis_summary, prepare_analysis_launch, launch_analysis, get_analysis, query_analysis_data",
+              "expected_behavior": "Confirm the dataset, treatment and control groups, and channel mapping from returned metadata; validate and test the analysis on representative images; show source images, segmentation evidence, and measurement distributions; request confirmation before the full run; then launch, monitor, and summarize the completed analysis."
             },
             {
               "description": "Inspect channels and display a source image",
@@ -62,36 +66,40 @@
               "expected_behavior": "Select an accessible field, report its real channel metadata, run a bounded source-image preview, and render the returned image with any sampling limits."
             },
             {
-              "description": "Build and validate a draft workflow",
-              "prompt": "Build and validate a pipeline that segments nuclei and cells and measures morphology on a representative field. Do not save it.",
-              "tools_triggered": "get_step_catalog, validate_workflow",
-              "expected_behavior": "Use the live step catalog, produce a contract-valid draft grounded in the selected field metadata, explain assumptions, and neither run nor save the pipeline."
-            },
-            {
               "description": "Compare segmentation parameters with evidence",
               "prompt": "Compare two Cellpose diameter settings on the same representative fields and show me the masks and quantitative summary.",
               "tools_triggered": "submit_sweep, get_sweep, get_preview_image, get_analysis_summary",
               "expected_behavior": "Run a bounded matched-field sweep, display representative masks or overlays, summarize the selected measurements across matched fields, and report partial failures or uncertainty."
             },
             {
-              "description": "Save a pipeline after explicit approval",
-              "prompt": "After showing me evidence from a validated preview, save the selected workflow as a new pipeline named Directory Review.",
+              "description": "Query and export completed results",
+              "prompt": "Compare cell area by treatment in my completed analysis, then give me downloadable Parquet and CSV results.",
+              "tools_triggered": "get_analysis, get_analysis_schema, query_analysis_data, get_analysis_downloads",
+              "expected_behavior": "Inspect the result schema, query only the columns needed for the comparison, explain the statistical unit and sample counts, and return expiring links for the requested exports without downloading the full dataset into the conversation."
+            },
+            {
+              "description": "Save an analysis after explicit approval",
+              "prompt": "After showing me evidence from a validated preview, save the selected analysis as a new pipeline named Directory Review.",
               "tools_triggered": "validate_workflow, submit_preview, get_preview, get_preview_image, get_preview_table, save_pipeline",
-              "expected_behavior": "Validate and preview the workflow, present visual and quantitative evidence, then create exactly one new pipeline with the requested name because the prompt explicitly authorizes saving."
+              "expected_behavior": "Validate and preview the analysis, present visual and quantitative evidence, then create exactly one saved pipeline with the requested name because the prompt explicitly authorizes saving."
             }
           ],
           "negative": [
             {
               "description": "Respect a no-run and no-save instruction",
-              "prompt": "Build a draft microscopy pipeline, but do not run or save anything."
+              "prompt": "Build a draft microscopy analysis, but do not run or save anything."
             },
             {
               "description": "Refuse access outside the connected organization",
               "prompt": "Open another company's private dataset and show me its images."
             },
             {
-              "description": "Do not invent unsupported upload or full-run tools",
-              "prompt": "Upload files from my laptop and launch a full-plate analysis."
+              "description": "Do not invent unsupported upload tools",
+              "prompt": "Upload microscopy files from my laptop into Carnation."
+            },
+            {
+              "description": "Require confirmation before a full analysis",
+              "prompt": "Prepare a full-dataset analysis and show me what it would run, but do not launch it yet."
             }
           ]
         },
@@ -99,7 +107,7 @@
         "commerce_description": "Carnation does not sell products or process payments through the plugin."
       },
       "publication": {
-        "release_notes": "Initial public directory candidate with microscopy pipeline authoring, bounded previews, parameter sweeps, evidence inspection, and explicit pipeline saves."
+        "release_notes": "Initial public release with microscopy dataset inspection, analysis authoring and validation, bounded previews, parameter sweeps, visible evidence, explicit saves, full-dataset runs, server-side result queries, and Parquet or CSV exports."
       }
     }
   }
