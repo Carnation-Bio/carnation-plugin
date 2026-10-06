@@ -9,6 +9,10 @@
   },
   "homepage": "https://www.carnation.bio",
   "repository": "https://github.com/Carnation-Bio/carnation-plugin",
+  "documentationUrl": "https://github.com/Carnation-Bio/carnation-plugin#readme",
+  "supportUrl": "https://app.carnation.bio/support",
+  "privacyPolicyUrl": "https://app.carnation.bio/privacy",
+  "termsOfServiceUrl": "https://app.carnation.bio/terms",
   "license": "Apache-2.0",
   "keywords": [
     "microscopy",
