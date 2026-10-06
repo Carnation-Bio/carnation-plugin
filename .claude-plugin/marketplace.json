@@ -3,7 +3,7 @@
   "name": "carnation",
   "description": "Official Carnation plugin for cloud microscopy analysis.",
   "owner": {
-    "name": "Carnation Bio",
+    "name": "Carnation",
     "email": "support@carnation.bio"
   },
   "metadata": {
@@ -17,7 +17,7 @@
       "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
       "version": "0.1.0",
       "author": {
-        "name": "Carnation Bio",
+        "name": "Carnation",
         "email": "support@carnation.bio"
       },
       "source": "./plugins/carnation",

@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
   "author": {
-    "name": "Carnation Bio",
+    "name": "Carnation",
     "email": "support@carnation.bio",
     "url": "https://www.carnation.bio"
   },
@@ -28,7 +28,7 @@
         "displayName": "Carnation",
         "shortDescription": "Microscopy analysis at scale",
         "longDescription": "Carnation helps scientists answer biological questions from microscopy images. Starting from a research question, assay description, or published method, it inspects the connected dataset, confirms channels and metadata, and runs state-of-the-art segmentation models and quantitative measurements on cloud GPU infrastructure. Scientists can review representative source images, masks, and measurements before approving the analysis across the full dataset. Completed results can be queried directly or exported as Parquet and CSV.",
-        "developerName": "Carnation Bio",
+        "developerName": "Carnation",
         "category": "Productivity",
         "capabilities": [
           "Inspect microscopy datasets, images, channels, and experimental metadata",

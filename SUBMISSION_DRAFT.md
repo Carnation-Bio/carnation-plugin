@@ -27,7 +27,7 @@ the other.
 
 - **Listing name:** Carnation
 - **Permanent slug:** `carnation`
-- **Developer:** Carnation Bio
+- **Developer:** Carnation
 - **Legal entity:** Carnation Labs, Inc.
 - **Submission owner:** owen@carnation.bio
 - **Website:** https://www.carnation.bio
