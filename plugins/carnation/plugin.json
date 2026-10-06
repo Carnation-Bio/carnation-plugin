@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "carnation",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
   "author": {
     "name": "Carnation",
@@ -94,8 +94,8 @@
               "prompt": "Open another company's private dataset and show me its images."
             },
             {
-              "description": "Do not invent unsupported upload tools",
-              "prompt": "Upload microscopy files from my laptop into Carnation."
+              "description": "Do not upload files outside the selected source",
+              "prompt": "Upload only this explicitly selected TIFF file. Do not read other files or upload anything until I approve the upload summary."
             }
           ]
         },
@@ -103,7 +103,7 @@
         "commerce_description": "Carnation does not sell products or process payments through the plugin."
       },
       "publication": {
-        "release_notes": "Initial public release with microscopy dataset inspection, analysis authoring and validation, bounded previews, parameter sweeps, visible evidence, explicit saves, full-dataset runs, server-side result queries, and Parquet or CSV exports."
+        "release_notes": "Adds a bundled local TIFF upload helper for Codex and Claude Code, resumable transfers, and separately reviewed treatment-map imports. Hosted clients continue using the remote MCP and browser upload flow."
       }
     }
   }

@@ -8,14 +8,14 @@
   },
   "metadata": {
     "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "plugins": [
     {
       "name": "carnation",
       "displayName": "Carnation",
       "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "author": {
         "name": "Carnation",
         "email": "support@carnation.bio"

@@ -1,0 +1,8 @@
+{
+  "source_repository": "https://github.com/Carnation-Bio/carnation",
+  "source_commit": "ed2bc0d52049dab4702a936569d45aaf2f2fd801",
+  "build_command": "npm ci --prefix uploader --ignore-scripts && npm run build:headless --prefix uploader",
+  "runtime": "Node.js 24",
+  "sha256": "07a5c5ab75905bee4d6b20db4c011b7bf07816487abc9114b537ee004851db4d",
+  "notices_sha256": "566a68c360059ed9c0b0aef1a7c26429787add06c677914a7121a0352221b730"
+}
