@@ -8,14 +8,17 @@ pr: treatment-aware plugin 0.2.1
 
 Prepared version 0.2.1 teaches exact confirmed treatment-cohort selection,
 visible scope/coverage, explicitly approved subset launches, map-derived preview
-comparisons and completed-run context-pinned queries. It is gated on deployment
-and qualification of Carnation app PRs #1565 and #1566. The package remains a
+comparisons, completed-run context-pinned queries and annotated CSV/Parquet
+downloads. App PRs #1565 and #1566 are deployed; export PR #1567 and complete
+client qualification remain release gates. The package remains a
 prepared release until those checks complete; nothing is submitted or published.
 
 Current annotations are distinct from frozen analysis provenance. Repeat
 `plate_map_context_hash` on every annotated schema/query page. Well/FOV queries
 carry actual public condition values and preserve their existing grain. Raw
-artifact links remain raw; derived annotated exports are not yet advertised.
+artifact links remain raw. Explicit annotated exports retain complete public
+conditions and run identity alongside selected measurements. Oversized exports
+must be narrowed, while remote queries remain the preferred analysis path.
 
 The approved listing identity/copy, visuals, endpoint, helper bytes and notices
 are unchanged. Versioned manifests, marketplace metadata and validation agree on

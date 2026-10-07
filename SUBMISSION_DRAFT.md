@@ -5,7 +5,7 @@
 This is the proposed shared listing for the Anthropic and OpenAI directories.
 The hosted MCP endpoint is `https://public-api.carnation.bio/mcp`.
 
-**Release gate:** Package `0.2.1` is prepared but not released. Merge and deploy the treatment-cohort and completed-run annotated-query API changes (including app PR #1566) to the production endpoint. Qualify `select_treatment_cohort`, selected launch preflight, map-derived preview summaries, and context-pinned schema/object/well/FOV queries before merging/publishing this package or refreshing either directory. Raw downloads remain unchanged; annotated downloads are not yet available. The currently released package is `0.2.0`. Publishing remains manual.
+**Release gate:** Package `0.2.1` is prepared but not released. Treatment cohorts and completed-run annotated queries (app PRs #1565 and #1566) are merged and deployed. Merge and deploy annotated exports (app PR #1567), then qualify cohort selection, selected launch preflight, map-derived preview summaries, context-pinned schema/object/well/FOV queries and annotated CSV/Parquet downloads before merging/publishing this package or refreshing either directory. Raw downloads remain unchanged. The currently released package is `0.2.0`. Publishing remains manual.
 
 ## Anthropic submission shape
 

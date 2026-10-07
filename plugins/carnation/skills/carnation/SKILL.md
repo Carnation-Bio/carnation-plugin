@@ -43,7 +43,9 @@ When `get_analysis_plate_map_context` is available, call it with the completed r
 
 Pass the returned `context_hash` as `plate_map_context_hash` to `get_analysis_schema` and `query_analysis_data` on every request and continuation page. Omitting the hash preserves raw measurement reads. Inspect the schema and request only needed columns; well/FOV results retain actual public condition values. Private notes are unavailable for selection, filtering or sorting. A changed context requires refreshing and reviewing it before retrying. These are current confirmed annotations, separate from frozen execution provenance; preview/sweep comparisons remain in `get_analysis_summary`.
 
-`get_analysis_downloads` retains its existing raw-artifact behavior. Annotated downloads are not yet available; do not describe the raw files as containing the current treatment-map annotations.
+For a requested annotated download, use `prepare_analysis_export` when available with the same `analysis_id` and `plate_map_context_hash`. In `controls`, choose CSV or Parquet, select the needed columns and safe filter, and use `mode: rows|well|fov` with optional aggregate statistics. Show the returned row count, columns and download link. The table retains complete public conditions and run identity even when measurements are narrowed. Preparation is bounded to one million rows and 256 MiB; narrow an oversized export. Refresh expired links, and refresh/review a changed map context before retrying.
+
+`get_analysis_downloads` retains its existing raw-artifact behavior. Keep raw files distinct from explicitly requested current-map annotated exports. Continue to use compact remote queries to answer questions without downloading a large table.
 
 ## Analysis workflow
 
