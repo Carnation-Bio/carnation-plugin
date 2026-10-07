@@ -5,6 +5,8 @@
 This is the proposed shared listing for the Anthropic and OpenAI directories.
 The hosted MCP endpoint is `https://public-api.carnation.bio/mcp`.
 
+**Release gate:** Package `0.2.1` is prepared but not released. Merge and deploy the treatment-cohort and completed-run annotated-query API changes (including app PR #1566) to the production endpoint. Qualify `select_treatment_cohort`, selected launch preflight, map-derived preview summaries, and context-pinned schema/object/well/FOV queries before merging/publishing this package or refreshing either directory. Raw downloads remain unchanged; annotated downloads are not yet available. The currently released package is `0.2.0`. Publishing remains manual.
+
 ## Anthropic submission shape
 
 Submit two related entries from the same Carnation Claude organization:
@@ -34,7 +36,7 @@ the other.
 - **Support:** https://app.carnation.bio/support
 - **Privacy policy:** https://app.carnation.bio/privacy
 - **Terms of service:** https://app.carnation.bio/terms
-- **Stable package version:** `0.1.0`
+- **Prepared package version:** `0.2.1`
 - **Brand color:** `#D94A64`
 
 ## Listing copy
@@ -93,8 +95,9 @@ results can be queried directly or exported as Parquet and CSV.
 
 **Current prerequisites and limits**
 
-- A Carnation account and an existing uploaded plate dataset are required.
-- Dataset upload and true volumetric analysis are not yet available through this connection.
+- A Carnation account is required. Hosted clients use datasets already uploaded in Carnation or the browser upload flow.
+- Codex and Claude Code can upload selected local TIFF/OME-TIFF files using the bundled helper with Node.js 24 and a separate one-time Carnation authorization. Upload and treatment-map features retain their organization gates; maps remain drafts until separately reviewed and confirmed.
+- Cloud-to-cloud uploads and true volumetric analysis remain follow-ups.
 - Analysis currently operates on one plate at a time, at `t=0`, using 2D inputs or an explicit Z projection.
 
 ## Visuals
@@ -109,6 +112,7 @@ results can be queried directly or exported as Parquet and CSV.
 - **Personal health data:** Depends on the customer's microscopy data and metadata; Carnation does not require health data for ordinary use.
 - **Advertisements or sponsored content:** No.
 - **Conversation collection:** Carnation receives specific MCP tool requests and does not request the assistant's full conversation history.
+- **Local code execution:** The Claude Code/Codex package includes a TIFF upload helper that reads only an explicitly selected source and transfers it after review and approval. It has no hooks or automatic execution. The hosted remote connector does not execute local code. Update the plugin submission disclosure to reflect the bundled helper rather than retaining the earlier package's “No local code execution” answer.
 - **Model training:** Carnation does not use customer content to train generalized AI or machine-learning models unless the customer explicitly agrees.
 
 ## Reviewer walkthrough
@@ -134,9 +138,10 @@ results can be queried directly or exported as Parquet and CSV.
 
 - Merge and deploy the approved app/API copy and legal pages.
 - Create a plugin-only ZIP rooted at `plugins/carnation/` for the OpenAI portal.
-- For Anthropic, select the reviewed `Carnation-Bio/carnation-plugin` GitHub repository and `0.1.0` plugin version in the submission.
+- After the release gate above passes, select the reviewed `Carnation-Bio/carnation-plugin` GitHub repository and `0.2.1` plugin version in the Anthropic submission.
 - Submit the Anthropic remote connector and plugin from the same Claude organization, then pair them after approval.
 - Finish the reviewer account invitation and upload the approved sample data.
 - Record a short walkthrough showing connection, authorization, metadata confirmation, representative preview, visible evidence, a confirmed full run, a result query, and export.
 - Enter the OpenAI domain-verification token in the public API environment after the portal provides it.
 - Run both portals' live MCP scans against the deployed version and resolve any new findings.
+- Refresh the plugin submission to version `0.2.1`, verify the local-code disclosure, and keep publishing manual. Directory checks or a GitHub webhook do not replace the final Publish review.
