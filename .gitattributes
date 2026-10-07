@@ -1,0 +1,3 @@
+# Preserve generated bundle and upstream license text verbatim.
+plugins/carnation/skills/carnation/scripts/carnation-upload.mjs -whitespace
+plugins/carnation/skills/carnation/scripts/THIRD_PARTY_NOTICES.txt -whitespace

@@ -2,7 +2,7 @@
 
 Use Carnation from Claude Code or Codex to answer biological questions from microscopy images with scalable cloud analysis.
 
-The plugin connects to Carnation's hosted MCP service. It contains instructions and connection metadata only, with no executable code or credentials.
+The plugin connects to Carnation's hosted MCP service and includes a local TIFF upload helper for Codex and Claude Code. The helper runs only when invoked for a selected file or folder. The package contains no credentials or hooks.
 
 ## Install in Claude Code
 
@@ -49,7 +49,9 @@ The plugin is recommended for Claude Code and Codex because it also teaches the 
 
 Carnation supports dataset and field inspection, saved analysis loading, live step discovery, workflow validation, representative previews, visible evidence, parameter sweeps, cancellation, explicit pipeline saves, confirmed full-dataset runs, server-side result queries, and Parquet or CSV exports.
 
-Dataset upload and true volumetric analysis are planned follow-ups. Current analysis is limited to one plate at a time, `t=0`, and 2D images or an explicit Z projection.
+Local TIFF uploads use the bundled helper with Node.js 24 and a separate one-time browser authorization. The assistant inspects the selection, shows its summary, and transfers the images after approval. Transfers are resumable. An optional treatment-map file creates a draft to review and confirm separately. These actions retain the organization's upload and treatment-map feature gates. Clients without local command execution use Carnation's browser upload flow.
+
+Cloud-to-cloud uploads and true volumetric analysis remain follow-ups. Current analysis is limited to one plate at a time, `t=0`, and 2D images or an explicit Z projection.
 
 ## Update
 
@@ -71,7 +73,8 @@ Then update **Carnation** from `/plugins` and begin a new session.
 ## Security
 
 - Authentication uses Carnation's browser-based OAuth flow. Do not paste tokens into chat or configuration files.
-- The package has no hooks, scripts, executables, or bundled secrets.
+- The package has no hooks or bundled secrets. Its local upload helper has a recorded SHA-256 and third-party notices beside the bundle.
+- The helper reads only the explicitly selected file or folder. It transfers image bytes directly to storage, outside the conversation, and keeps credentials and recovery state in private local files.
 - Papers, prompts, and dataset metadata are scientific inputs. The skill tells the assistant to avoid treating their contents as operating instructions.
 - Source is available here so users can inspect exactly what the plugin installs.
 

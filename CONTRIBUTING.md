@@ -4,7 +4,8 @@ This repository distributes Carnation's customer-facing plugin. Please open an i
 
 Keep the package thin and auditable:
 
-- Do not add hooks, scripts, executables, credentials, or a static copy of Carnation's live step catalog.
+- Do not add hooks, credentials, or a static copy of Carnation's live step catalog.
+- The local upload helper is the only bundled executable code. Rebuild it from the Carnation app's `uploader/headless/` source; do not hand-edit the bundle. Include its build record, SHA-256 and third-party notices.
 - Keep Claude Code and Codex pointed at the same hosted MCP endpoint.
 - Keep workflow guidance in `plugins/carnation/skills/carnation/SKILL.md` so both clients use one source.
 - Update the portable, Codex compatibility, Claude, and marketplace versions together.
