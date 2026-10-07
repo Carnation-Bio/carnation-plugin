@@ -1,6 +1,6 @@
 Third-party components bundled with Carnation local upload.
 
-@modelcontextprotocol/sdk@1.27.1 (MIT)
+@modelcontextprotocol/sdk@1.32.1 (MIT)
 MIT License
 
 Copyright (c) 2024 Anthropic, PBC
