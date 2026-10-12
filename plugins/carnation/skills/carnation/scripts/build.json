@@ -1,6 +1,6 @@
 {
   "source_repository": "https://github.com/Carnation-Bio/carnation",
-  "source_commit": "a2b473f9746c40ffd24d03fd22bc5580993d7cf0",
+  "source_commit": "03b6b9d987384c26cee92e948fb3d55a164fc6bc",
   "build_command": "npm ci --prefix uploader --ignore-scripts && npm run build:headless --prefix uploader",
   "runtime": "Node.js 24",
   "files": {
