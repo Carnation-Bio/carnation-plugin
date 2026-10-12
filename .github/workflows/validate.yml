@@ -34,7 +34,7 @@ jobs:
           ]
           documents = {path: json.loads(path.read_text()) for path in json_files}
 
-          expected_version = "0.2.2"
+          expected_version = "0.2.3"
           endpoint = "https://public-api.carnation.bio/mcp"
           manifests = [
               documents[plugin / "plugin.json"],
@@ -56,16 +56,30 @@ jobs:
           assert not any(path.is_file() and path.stat().st_mode & 0o111 for path in plugin.rglob("*"))
           helper = plugin / "skills" / "carnation" / "scripts"
           build = json.loads((helper / "build.json").read_text())
-          bundle = helper / "carnation-upload.mjs"
-          assert build["sha256"] == hashlib.sha256(bundle.read_bytes()).hexdigest()
-          # Directory scanners hold bundles carrying code they cannot read.
-          assert b"WebAssembly" not in bundle.read_bytes()
+          shipped = {
+              path.relative_to(helper).as_posix(): path.read_bytes()
+              for path in helper.rglob("*")
+              if path.is_file() and path.name != "build.json"
+          }
+          assert set(shipped) == set(build["files"]), sorted(set(shipped) ^ set(build["files"]))
+          for name, data in shipped.items():
+              assert build["files"][name] == hashlib.sha256(data).hexdigest(), name
+              # Directory scanners hold code they cannot read.
+              assert b"WebAssembly" not in data, name
           assert build["runtime"] == "Node.js 24"
           assert build["source_repository"] == "https://github.com/Carnation-Bio/carnation"
           assert re.fullmatch(r"[0-9a-f]{40}", build["source_commit"])
-          notices = helper / "THIRD_PARTY_NOTICES.txt"
-          assert notices.stat().st_size > 0
-          assert build["notices_sha256"] == hashlib.sha256(notices.read_bytes()).hexdigest()
+          assert shipped["THIRD_PARTY_NOTICES.txt"]
+          # The directory holds any file other than an image of 256 KiB or more.
+          images = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
+          large = [
+              str(path)
+              for path in plugin.rglob("*")
+              if path.is_file()
+              and path.suffix.lower() not in images
+              and path.stat().st_size >= 256 * 1024
+          ]
+          assert not large, large
           PY
       - uses: actions/setup-node@v4
         with:

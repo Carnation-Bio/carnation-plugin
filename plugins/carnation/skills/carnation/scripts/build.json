@@ -1,8 +1,14 @@
 {
   "source_repository": "https://github.com/Carnation-Bio/carnation",
-  "source_commit": "ba787a3173f6c30745abb12b886c9792f41dbe2b",
+  "source_commit": "03b6b9d987384c26cee92e948fb3d55a164fc6bc",
   "build_command": "npm ci --prefix uploader --ignore-scripts && npm run build:headless --prefix uploader",
   "runtime": "Node.js 24",
-  "sha256": "da39d1e38154f2c528f14078ccaf90c36d7bbca44f7a7e8a56cebfaa2f45fa32",
-  "notices_sha256": "4fbf136ae9b16bd94a2c1201eab8ab28a5401333d18d7c9c569c0d34f5e8e244"
+  "files": {
+    "THIRD_PARTY_NOTICES.txt": "4fbf136ae9b16bd94a2c1201eab8ab28a5401333d18d7c9c569c0d34f5e8e244",
+    "carnation-upload.mjs": "89f2ebf0132f7222a33bfc60f0daf0aa0d8c06b69f44143f82df66dbe394191d",
+    "lib/geotiff.mjs": "f1af0cc54b1c490022a445d6ca5ba501b0dadc2894f24132ddfee176cdac61a0",
+    "lib/modelcontextprotocol-sdk.mjs": "64ab42df23364f2a6d0ec4f0fd48409197ecfdea0664496715837121c904fb0f",
+    "lib/saxes.mjs": "8ca55dfe19cba3326b9ae959fe24335f2e53ce021b96d30b7cd29b3ac094d07e",
+    "lib/zod.mjs": "eabaa661fbb46567202be682202ee1e5b5451f7ee59e9686d61904d5bf7ece91"
+  }
 }

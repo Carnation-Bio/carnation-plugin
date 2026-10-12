@@ -1,6 +1,6 @@
 # Carnation directory submission draft
 
-**Status:** The Anthropic plugin listing is submitted. Version `0.2.2` passed its release gate; publishing it in the directory remains a manual owner step.
+**Status:** The Anthropic plugin listing is submitted. Version `0.2.3` carries the qualified 0.2.2 features with the upload helper split into files under the directory's 256 KiB limit; publishing it in the directory remains a manual owner step.
 
 This is the proposed shared listing for the Anthropic and OpenAI directories.
 The hosted MCP endpoint is `https://public-api.carnation.bio/mcp`.
@@ -36,7 +36,7 @@ the other.
 - **Support:** https://app.carnation.bio/support
 - **Privacy policy:** https://app.carnation.bio/privacy
 - **Terms of service:** https://app.carnation.bio/terms
-- **Prepared package version:** `0.2.2`
+- **Prepared package version:** `0.2.3`
 - **Brand color:** `#D94A64`
 - **Directory icon:** upload the 1024 px white-on-black flower (`uploader/assets/CarnationUploader.iconset/icon_512x512@2x.png` in the app repository) on the listing. The directory cannot display an icon given as a path inside the plugin.
 
@@ -139,10 +139,10 @@ results can be queried directly or exported as Parquet and CSV.
 
 - Merge and deploy the approved app/API copy and legal pages.
 - Create a plugin-only ZIP rooted at `plugins/carnation/` for the OpenAI portal.
-- After the release gate above passes, select the reviewed `Carnation-Bio/carnation-plugin` GitHub repository and `0.2.2` plugin version in the Anthropic submission.
+- After the release gate above passes, select the reviewed `Carnation-Bio/carnation-plugin` GitHub repository and `0.2.3` plugin version in the Anthropic submission.
 - Submit the Anthropic remote connector and plugin from the same Claude organization, then pair them after approval.
 - Finish the reviewer account invitation and upload the approved sample data.
 - Record a short walkthrough showing connection, authorization, metadata confirmation, representative preview, visible evidence, a confirmed full run, a result query, and export.
 - Enter the OpenAI domain-verification token in the public API environment after the portal provides it.
 - Run both portals' live MCP scans against the deployed version and resolve any new findings.
-- Refresh the plugin submission to version `0.2.2`, verify the local-code disclosure, and keep publishing manual. Directory checks or a GitHub webhook do not replace the final Publish review.
+- Refresh the plugin submission to version `0.2.3`, verify the local-code disclosure, and keep publishing manual. Directory checks or a GitHub webhook do not replace the final Publish review.
