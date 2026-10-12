@@ -1,11 +1,11 @@
 # Carnation directory submission draft
 
-**Status: review only. Do not submit or publish this listing yet.**
+**Status:** The Anthropic plugin listing is submitted. Version `0.2.2` passed its release gate; publishing it in the directory remains a manual owner step.
 
 This is the proposed shared listing for the Anthropic and OpenAI directories.
 The hosted MCP endpoint is `https://public-api.carnation.bio/mcp`.
 
-**Release gate:** Package `0.2.2` is prepared but not released. Treatment cohorts and completed-run annotated queries (app PRs #1565 and #1566) are merged and deployed. Merge and deploy annotated exports (app PR #1567), then qualify cohort selection, selected launch preflight, map-derived preview summaries, context-pinned schema/object/well/FOV queries and annotated CSV/Parquet downloads before merging/publishing this package or refreshing either directory. Raw downloads remain unchanged. The currently released package is `0.2.0`. Publishing remains manual.
+**Release gate:** Passed for `0.2.2` on October 12, 2026. Treatment cohorts, annotated queries and annotated exports (app PRs #1565, #1566 and #1567) are in production. Codex qualified the treatment-aware flow on beta (app PR #1572). Claude Code then qualified it against production through the Carnation plugin connection: cohort selection, a cohort-scoped launch preflight, map-derived preview summaries, a two-field full run, context-pinned schema, row, well and FOV queries, and annotated CSV and Parquet downloads. Raw downloads remain unchanged. The currently released package is `0.2.0`. Publishing remains manual.
 
 ## Anthropic submission shape
 
