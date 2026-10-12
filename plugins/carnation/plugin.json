@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "carnation",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Answer biological questions from microscopy images with scalable cloud analysis.",
   "author": {
     "name": "Carnation",
@@ -103,7 +103,7 @@
         "commerce_description": "Carnation does not sell products or process payments through the plugin."
       },
       "publication": {
-        "release_notes": "Adds guidance for exact treatment-cohort selection, explicitly approved cohort runs, and treatment-aware preview summaries. The bundled local TIFF upload helper is unchanged."
+        "release_notes": "Rebuilds the bundled local TIFF upload helper as plain JavaScript without embedded binary decoders. Upload behavior is unchanged."
       }
     }
   }
