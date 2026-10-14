@@ -51,6 +51,10 @@ jobs:
           assert skill.startswith("---\nname: carnation\n")
           assert "description:" in skill.split("---", 2)[1]
 
+          # Public repository: internal planning and submission notes live elsewhere.
+          assert not (root / "plans").exists()
+          assert not (root / "SUBMISSION_DRAFT.md").exists()
+
           forbidden = [plugin / "hooks", plugin / "scripts"]
           assert not any(path.exists() for path in forbidden)
           assert not any(path.is_file() and path.stat().st_mode & 0o111 for path in plugin.rglob("*"))
