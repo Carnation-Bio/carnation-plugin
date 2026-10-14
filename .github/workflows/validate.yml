@@ -34,7 +34,7 @@ jobs:
           ]
           documents = {path: json.loads(path.read_text()) for path in json_files}
 
-          expected_version = "0.2.3"
+          expected_version = "0.2.4"
           endpoint = "https://public-api.carnation.bio/mcp"
           manifests = [
               documents[plugin / "plugin.json"],
