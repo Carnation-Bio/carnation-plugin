@@ -2,6 +2,8 @@
 
 This repository distributes Carnation's customer-facing plugin. Please open an issue before proposing a behavior change.
 
+This repository is public. Keep plans, recaps, release gates and directory submission notes in Carnation's private repository.
+
 Keep the package thin and auditable:
 
 - Do not add hooks, credentials, or a static copy of Carnation's live step catalog.
