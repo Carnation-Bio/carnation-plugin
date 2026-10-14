@@ -47,7 +47,7 @@ The plugin is recommended for Claude Code and Codex because it also teaches the 
 
 ## Current scope
 
-Carnation supports dataset and field inspection, saved analysis loading, live step discovery, workflow validation, representative previews, visible evidence, parameter sweeps, cancellation, explicit pipeline saves, confirmed full-dataset runs, server-side result queries, and Parquet or CSV exports.
+Carnation supports dataset and field inspection, stored field QC, saved analysis loading, live step discovery, workflow validation, representative previews, visible evidence, parameter sweeps, cancellation, explicit pipeline saves, confirmed full-dataset or selected-well runs, server-side result queries, and Parquet or CSV exports, including full numeric profiles per well or field.
 
 Local TIFF uploads use the bundled helper with Node.js 24 and a separate one-time browser authorization. The assistant inspects the selection, shows its summary, and transfers the images after approval. Transfers are resumable. An optional treatment-map file creates a draft to review and confirm separately. These actions retain the organization's upload and treatment-map feature gates. Clients without local command execution use Carnation's browser upload flow.
 
